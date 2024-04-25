@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mapa con Árbol de Capas</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-   crossorigin=""/>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="assets/css/leaflet.css">
+  <script type="text/javascript" src="assets/js/leaflet.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/common.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -23,15 +20,6 @@
           <img fetchpriority="high" decoding="async" width="200" height="100" src="https://utnchacabuco.ar/wp-content/uploads/2023/10/logo-chacabuco.png" alt="UTN Chacabuco" title="UTN Chacabuco" srcset="https://utnchacabuco.ar/wp-content/uploads/2023/10/logo-chacabuco.png 1413w, https://utnchacabuco.ar/wp-content/uploads/2023/10/logo-chacabuco-1280x777.png 1280w, https://utnchacabuco.ar/wp-content/uploads/2023/10/logo-chacabuco-980x595.png 980w, https://utnchacabuco.ar/wp-content/uploads/2023/10/logo-chacabuco-480x291.png 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) and (max-width: 1280px) 1280px, (min-width: 1281px) 1413px, 100vw" class="wp-image-61">
         </nav>
         <div class="pl5 pr5 pt5">
-          <div class="form-group">
-            <label class="control-label">
-              <b>Tipo de Mapa</b>
-            </label>
-            <div class="btn-group">
-              <a id="btn-calle" onclick="toggleStyleMap('calle')" href="javascript:void(0)" class="btn btn-primary btn-toggle-type active">Calles</a>
-              <a id="btn-satelite" onclick="toggleStyleMap('satelite')" href="javascript:void(0)" class="btn btn-toggle-type btn-primary">Satelital</a>
-            </div>
-          </div>
           <div id="groups"></div>
         </div>
       </div>
@@ -45,19 +33,23 @@
 
 <script type="text/javascript" src="assets/js/script.js"></script>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoidmNtYXBib3gxMSIsImEiOiJjbHVzY3kweGcwaDBmMm1yejNyNjB0d2F0In0.6kvfxE3UqRsJXhKaJ8tEKg'; // Reemplaza 'TU_ACCESS_TOKEN' con tu propio token de Mapbox
+const BASE = "<?php echo (isset($_SERVER["BASE"]) ? $_SERVER["BASE"] : "")  ?>";
+const MAPBOX_KEY = "<?php echo (isset($_SERVER["MAPBOX_KEY"]) ? $_SERVER["MAPBOX_KEY"] : "")  ?>";
 
 // Modelo de capas
+window.visibleLayers = [];
 window.groups = [
   {
     "label":"Servicios",
     "layers":[
       {
         "type":"shape",
-        "url":"data/calles",
+        "url":"data/calles/calles",
         "id":"calles",
         "label":"Asfalto",
-        "opacity":0.5,
+        "color": "#ff0000",
+        "weight": 3,
+        "opacity": 1,
       },
       {
         "type":"",
@@ -74,11 +66,13 @@ window.groups = [
         "opacity":0.5,
       },
       {
-        "type":"",
-        "url":"",
+        "type":"shape",
+        "url":"data/pozos_agua/pozos_agua",
         "id":"pozos-de-agua",
         "label":"Pozos de agua",
-        "opacity":0.5,
+        "color": "#ff0000",
+        "weight": 3,
+        "opacity": 1,
       },
       {
         "type":"",
@@ -95,11 +89,13 @@ window.groups = [
         "opacity":0.5,
       },
       {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
+        "type":"shape",
+        "url":"data/estacionamiento_zonas/estacionamiento_zonas",
+        "id":"estacionamiento-zonas",
         "label":"Zonas de Estacionamiento",
-        "opacity":0.5,
+        "opacity":0.8,
+        "color": "#ff0000",
+        "weight": 3,
       },
       {
         "type":"",
@@ -150,9 +146,16 @@ window.groups = [
     "layers":[
       {
         "type":"shape",
-        "url":"data/calles",
-        "id":"calles",
+        "url":"data/barrios/barrios",
+        "id":"barrios",
         "label":"Barrios",
+        "opacity":0.5,
+      },
+      {
+        "type":"shape",
+        "url":"data/sectores",
+        "id":"sectores",
+        "label":"Sectores",
         "opacity":0.5,
       },
       {
@@ -204,8 +207,8 @@ window.groups = [
     "layers":[
       {
         "type":"shape",
-        "url":"data/calles",
-        "id":"calles",
+        "url":"data/barrios/",
+        "id":"barrios",
         "label":"Barrios",
         "opacity":0.5,
       },

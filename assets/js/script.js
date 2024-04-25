@@ -1,15 +1,31 @@
 function initMap() {
-  // Inicializar el mapa
-  window.map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11', // Puedes cambiar el estilo del mapa según tus preferencias
-    center: [-60.471581,-34.642337], // Coordenadas de centro del mapa (longitud, latitud)
-    zoom: 13 // Nivel de zoom inicial
+  var center = [-34.642337,-60.471581];
+  window.mapa = L.map($("#map")[0]).setView(center, 15);
+
+
+  var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token='+MAPBOX_KEY, {
+    tileSize: 512,
+    maxZoom: 18,
+    zoomOffset: -1,
+    id: 'mapbox/satellite-streets-v11',
+    accessToken: MAPBOX_KEY,
+  }).addTo(window.mapa);
+
+  var streetLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token='+MAPBOX_KEY, {
+    tileSize: 512,
+    maxZoom: 18,
+    zoomOffset: -1,
+    id: 'mapbox/streets-v11',
+    accessToken: MAPBOX_KEY,
   });
 
-  map.on("load",function() {
-    initMenu();
-  });
+  var baseMaps = {
+    "Satélite": satelliteLayer,
+    "Calles": streetLayer,
+  }
+  L.control.layers(baseMaps).addTo(window.mapa);
+
+  initMenu();
 }
 
 function initMenu() {
@@ -32,17 +48,6 @@ function renderGroup(group) {
   return s;
 }
 
-function toggleStyleMap(tipo) {
-  $(".btn-toggle-type").removeClass("active");
-  if (tipo == "calle") {
-    map.setStyle('mapbox://styles/mapbox/streets-v11');
-  } else {
-    map.setStyle('mapbox://styles/mapbox/satellite-v9');
-  }
-  $("#btn-"+tipo).addClass("active");
-  initLayers();
-}
-
 function getLayer(id) {
   for(let j = 0; j < window.groups.length; j++) {
     let group = window.groups[j];    
@@ -58,56 +63,75 @@ function getLayer(id) {
 
 function renderMenuItem(layer) {
   return `
-    <li id="menuItem_${layer.id}" data-id="${layer.id}" onclick="loadLayer('${layer.id}')" class="list-group-item">
+    <li id="menuItem_${layer.id}" data-id="${layer.id}" onclick="viewLayer('${layer.id}')" class="list-group-item">
       ${layer.label}
     </li>
   `;
 }
 
-function loadLayer(layerId) {
+function viewLayer(layerId) {
   if ($("#menuItem_"+layerId).hasClass("active")) {
-    $("#menuItem_"+layerId).removeClass("active")
+    // OCULTAMOS LA CAPA
+    $("#menuItem_"+layerId).removeClass("active");
+
+    for(let i = 0; i < window.visibleLayers.length; i++) {
+      let vl = window.visibleLayers[i];
+      if (vl.id == layerId) {
+        vl.layer.remove();
+        window.visibleLayers.splice(i,1);
+        break;
+      }
+    }
   } else {
+    // CARGAMOS LA CAPA
     $("#menuItem_"+layerId).addClass("active")
     var layer = getLayer(layerId);
     if (layer.type == "shape") {
-      loadGeoJSON(layer);
+      loadShape(layer);
     }
   }
 }
 
-// Función para cargar un GeoJSON y agregarlo como una fuente de datos y capa
-function loadGeoJSON(layer) {
-  fetch(layer.url)
-    .then(response => response.json())
-    .then(data => {
-      map.addSource(layer.id, {
-        type: 'geojson',
-        data: data
-      });
-      map.addLayer({
-        'id': layer.id,
-        'type': 'fill',
-        'source': layer.id,
-        'layout': {},
-        'paint': {
-          'fill-color': ['get', 'color'],
-          'fill-opacity': layer.opacity
-        }
-      });
+// Ej: workspace.loadShape({"path":"uploads/1/2023-04-08/calculation_1/vectorized"})
+function loadShape(layer) {
+  // Crear un nuevo worker y cargar la capa Shape
+  var worker = new Worker('/assets/js/shapeLoader.js?v='+Math.round(Math.random()*100));
+  worker.addEventListener('message', function(e) {
+    var geojson = e.data;
 
-      // Agregar el tooltip al mapa
-      map.on('click', layer.id, function (e) {
-        var coordinates = e.lngLat;
-        var properties = e.features[0].properties; // Propiedades del elemento del GeoJSON
-        if (typeof properties.nombre != "undefined") {
-          new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML('<h3>' + properties.nombre + '</h3>')
-            .addTo(map);
+    // Crear una capa GeoJSON y añadirla al mapa
+    var l = L.geoJSON(geojson,{
+      // Para que pinte con los colores correspondientes cada vector
+      style: function (feature) {
+        return {
+          "fillColor": (layer.color ?? feature.properties.color),
+          "weight": (layer.weight ?? 1),
+          "opacity": (layer.opacity ?? 1),
+          "color": (layer.color ?? feature.properties.color),
+          "fillOpacity": (layer.opacity ?? 1)
+        };
+      },
+      pointToLayer: function (feature, latlng) {
+        var defaultMarkerOptions = {
+          radius: 5, // Radio del círculo
+          color: 'red', // Color del círculo
+          fillColor: 'red', // Color de relleno del círculo
+          fillOpacity: 1 // Opacidad del relleno del círculo
+        };
+        return L.circleMarker(latlng, defaultMarkerOptions);
+      },
+      onEachFeature: function (feature, layer) {
+        if (typeof feature.properties.nombre != undefined) {
+          layer.bindTooltip(feature.properties.nombre).openTooltip();
         }
-      });
-
-    })
-    .catch(error => console.error('Error al cargar el GeoJSON:', error));
+      }
+    }).addTo(window.mapa);
+    window.visibleLayers.push({
+      "id":layer.id,
+      "layer":l
+    });
+  });
+  // Iniciar la carga del archivo Shape
+  let url = BASE + "/" + layer.url;
+  worker.postMessage(url);
 }

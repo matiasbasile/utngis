@@ -11,6 +11,8 @@ services:
       - PASSWORD_DB=${PASSWORD_DB}
       - SERVER_DB=${SERVER_DB}
       - PROJECT_NAME=${PROJECT_NAME}
+      - BASE=${BASE}
+      - MAPBOX_KEY=${MAPBOX_KEY}
     volumes:
       - .:/var/www
 
