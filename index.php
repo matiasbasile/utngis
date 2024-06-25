@@ -40,6 +40,17 @@ const MAPBOX_KEY = "<?php echo (isset($_SERVER["MAPBOX_KEY"]) ? $_SERVER["MAPBOX
 window.visibleLayers = [];
 window.groups = [
   {
+    "label":"Accidentes",
+    "layers":[
+      {
+        "type":"point",
+        "url":"api/accidentes.php",
+        "id":"accidentes",
+        "label":"Accidentes",
+      }
+    ],
+  },
+  {
     "label":"Servicios",
     "layers":[
       {

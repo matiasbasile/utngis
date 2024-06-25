@@ -88,8 +88,32 @@ function viewLayer(layerId) {
     var layer = getLayer(layerId);
     if (layer.type == "shape") {
       loadShape(layer);
+    } else if (layer.type == "point") {
+      loadPoint(layer);
     }
   }
+}
+
+function loadPoint(layer) {
+  $.ajax({
+    "url":layer.url,
+    "dataType":"json",
+    "success":function(resultado) {
+      for (let i = 0; i < resultado.length; i++) {
+        let punto = resultado[i];
+        renderPoint(punto);
+      }
+    }
+  })
+}
+
+function renderPoint(punto) {
+  var marker = L.marker([punto.latitud, punto.longitud]).addTo(window.mapa);
+  var tooltip = `
+  <b>Fecha: </b> ${punto.fecha}<br/>
+  <b>Tipo: </b>${punto.tipo}<br/>
+  <a target="_blank" href="${punto.url}">Ver link</a>`;
+  marker.bindPopup(tooltip);
 }
 
 // Ej: workspace.loadShape({"path":"uploads/1/2023-04-08/calculation_1/vectorized"})
