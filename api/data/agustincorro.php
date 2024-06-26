@@ -127,3 +127,5 @@ $puntos[] = [
     "muertos" => 0,
     "url" => "https://chacabucoenred.com/madre-e-hijo-heridos-en-un-accidente-en-acceso-juan-xxiii/",
 ];
+
+?>
