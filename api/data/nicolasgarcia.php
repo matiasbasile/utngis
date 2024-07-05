@@ -133,4 +133,3 @@ $puntos = [
         "url" => "https://chacabucoenred.com/una-mujer-trasladada-al-hospital-tras-sufrir-un-accidente/",
     ],
 ];
-?>

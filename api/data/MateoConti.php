@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: application/json; charset=utf-8');
+
 $puntos = [
     "latitud" => "-34.650413476763745",
     "longitud" => "60.46028387575085",
@@ -119,9 +119,3 @@ $puntos = [
     "muertos" => 0,
     "url" => "https://chacabucoenred.com/violento-choque-entre-dos-autos-2/",
 ];
-
-
-include("data/ejemplo.php");
-
-echo json_encode($puntos);
-?>

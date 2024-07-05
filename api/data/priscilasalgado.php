@@ -1,23 +1,23 @@
 <?php
 
 $puntos[] = [
-    //ACCIDENTE1
-  "latitud" => "-34.6538580", 
+  //ACCIDENTE1
+  "latitud" => "-34.6538580",
   "longitud" => "-60.4727210",
-  "fecha" => "16/02/23", 
-  "horario" => "MAÑANA", 
-  "tipo" => "GRANDE_GRANDE", 
+  "fecha" => "2023-02-16",
+  "horario" => "MAÑANA",
+  "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
-  "danios_fisicos" => "LEVE", 
+  "danios_fisicos" => "LEVE",
   "muertos" => 0,
   "url" => "https://chacabucoenred.com/choque-entre-auto-y-moto-20/?sfnsn=scwspwa",
 ];
 
 $puntos[] = [
-    //ACCIDENTE2
+  //ACCIDENTE2
   "latitud" => "-34.6421000",
   "longitud" => "-60.4812340",
-  "fecha" => "16/02/23",
+  "fecha" => "2023-02-16",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -28,10 +28,10 @@ $puntos[] = [
 
 
 $puntos[] = [
-    //ACCIDENTE3
+  //ACCIDENTE3
   "latitud" => "-34.6529425",
   "longitud" => "-60.4672657",
-  "fecha" => "17/02/23",
+  "fecha" => "2023-02-17",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_GRAVES",
@@ -41,10 +41,10 @@ $puntos[] = [
 ];
 
 $puntos[] = [
-    //ACCIDENTE4
+  //ACCIDENTE4
   "latitud" => "-34.6381960",
   "longitud" => "-60.4745180",
-  "fecha" => "18/02/23",
+  "fecha" => "2023-02-18",
   "horario" => "MAÑANA",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -54,10 +54,10 @@ $puntos[] = [
 ];
 
 $puntos[] = [
-    //ACCIDENTE5
+  //ACCIDENTE5
   "latitud" => "-34.6374451",
   "longitud" => "-60.4671670",
-  "fecha" => "18/02/23",
+  "fecha" => "2023-02-18",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -68,10 +68,10 @@ $puntos[] = [
 
 
 $puntos[] = [
-    //ACCIDENTE6
+  //ACCIDENTE6
   "latitud" => "-34.6363414",
   "longitud" => "-60.4702608",
-  "fecha" => "18/02/23",
+  "fecha" => "2023-02-18",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -81,10 +81,10 @@ $puntos[] = [
 ];
 
 $puntos[] = [
-    //ACCIDENTE7
+  //ACCIDENTE7
   "latitud" => "-34.6465288",
   "longitud" => "-60.4621270",
-  "fecha" => "20/02/23",
+  "fecha" => "2023-02-20",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -94,10 +94,10 @@ $puntos[] = [
 ];
 
 $puntos[] = [
-    //ACCIDENTE8
+  //ACCIDENTE8
   "latitud" => "-34.6311574",
   "longitud" => "-60.4753811",
-  "fecha" => "23/02/23",
+  "fecha" => "2023-02-23",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "SIN_DAÑOS",
@@ -107,10 +107,10 @@ $puntos[] = [
 ];
 
 $puntos[] = [
-    //ACCIDENTE9
+  //ACCIDENTE9
   "latitud" => "-34.6372430",
   "longitud" => "-60.4757300",
-  "fecha" => "24/02/23",
+  "fecha" => "2023-02-24",
   "horario" => "NOCHE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -121,10 +121,10 @@ $puntos[] = [
 
 
 $puntos[] = [
-    //ACCIDENTE10
+  //ACCIDENTE10
   "latitud" => "-34.6448140",
   "longitud" => "-60.4776600",
-  "fecha" => "25/02/23",
+  "fecha" => "2023-02-25",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -134,10 +134,10 @@ $puntos[] = [
 ];
 
 $puntos[] = [
-    //ACCIDENTE11
+  //ACCIDENTE11
   "latitud" => "-34.6330749",
   "longitud" => "-60.4710671",
-  "fecha" => "28/02/23",
+  "fecha" => "2023-02-28",
   "horario" => "TARDE",
   "tipo" => "GRANDE_GRANDE",
   "danios_materiales" => "DAÑOS_MENORES",
@@ -145,6 +145,3 @@ $puntos[] = [
   "muertos" => 0,
   "url" => "https://chacabucoenred.com/dos-heridos-en-un-accidente-de-transito/?sfnsn=scwspwa",
 ];
-
-
-?>
