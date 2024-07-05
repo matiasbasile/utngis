@@ -1,13 +1,4 @@
 <?php
-
-/*
-  fecha:              "YYYY-MM-DD",
-  horario:            "MADRUGADA|MAÑANA|TARDE|NOCHE",
-  tipo:               "CHICO_CHICO|CHICO_PEATON|GRANDE_CHICO|GRANDE_GRANDE|GRANDE_PEATON|",
-  danios_materiales:  "SIN_DAÑOS|DAÑOS_MENORES|DAÑOS_GRAVES",
-  danios_fisicos:     "SIN_DAÑOS|LEVE|GRAVE",
-*/
-
 $puntos[] = [
     "latitud" => "-34.63791536412047", 
     "longitud" => "-60.47400178951059",

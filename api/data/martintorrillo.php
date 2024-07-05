@@ -1,8 +1,8 @@
 <?php
 
-$puntos[] =[
-    "latitud"=>-34.63857714778832,//CON MUCHOS DECIMALES
-    "longitud"=>-60.45558957747814,
+$puntos[] = [
+    "latitud"=>"-34.63857714778832",//CON MUCHOS DECIMALES
+    "longitud"=>"-60.45558957747814",
     "fecha"=>01/01/2023, // YYYY-MM-DD
     "horario" => "MADRUGADA", // MAYUSCULA
     "tipo"=> "CHICO_GRANDE", // CON MAYUSCULA Y GUION BAJO
@@ -47,7 +47,7 @@ $puntos[]=[
     "muertos" =>0,
     "url" =>"https://chacabucoenred.com/impacto-contra-un-auto-estacionado/",
 ];
-$puntos []=[
+$puntos[]=[
     "latitud" =>"-34.64380807352404",
     "longitud" =>"-60.47887164679162",
     "fecha" =>07/01/2023,
@@ -58,7 +58,7 @@ $puntos []=[
     "muertos" =>0,
     "url" =>"https://chacabucoenred.com/violento-accidente-de-transito-con-un-joven-herido/",
 ];
-$puntos []=[
+$puntos[]=[
     "latitud" =>"-34.650349476607204",
     "longitud" =>"-60.46028197747737",
     "fecha" =>08/01/2023,
