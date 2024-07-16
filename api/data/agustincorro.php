@@ -1,4 +1,6 @@
 <?php
+// 10 ACCIDENTES
+
 $puntos[] = [
     "latitud" => "-34.63791536412047",
     "longitud" => "-60.47400178951059",
