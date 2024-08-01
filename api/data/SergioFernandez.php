@@ -84,4 +84,101 @@ $puntos[] = [
     "url" => "https://chacabucoenred.com/choque-y-fuga-una-mujer-y-su-hijo-hospitalizados/",
   ];
 
-?>
+
+
+  $semaforos[] = [
+      "latitud" => "-34.64100185037895",
+      "longitud" => "-60.46249994109775",
+      "fotomulta" => "1",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.641536278367816",
+      "longitud" => "-60.46529211794153",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64017337120418",
+      "longitud" => "-60.47028720936146",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64087985115431",
+      "longitud" => "-60.471056711349476",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64224879586382",
+      "longitud" => "-60.47262963898021",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.643166611010386",
+      "longitud" => "-60.471494820362615",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.641770099756975",
+      "longitud" => "-60.46989885114619",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64337524845874",
+      "longitud" => "-60.469540284138084",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.644213567242545",
+      "longitud" => "-60.46838080120883",
+      "fotomulta" => "1",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64511560779036",
+      "longitud" => "-60.467254730044424",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64607327699254",
+      "longitud" => "-60.46606919365009",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.6470305364781",
+      "longitud" => "-60.4715403390997",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64064515014394",
+      "longitud" => "-60.472991353752",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.63808186323613",
+      "longitud" => "-60.45477304905006",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64927619416975",
+      "longitud" => "-60.471948073588074",
+      "fotomulta" => "0",
+  ];
+
+  $semaforos[] = [
+      "latitud" => "-34.64045250632018",
+      "longitud" => "-60.46642000458714",
+      "fotomulta" => "0",
+  ];
+  ?>
