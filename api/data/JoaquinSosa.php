@@ -103,3 +103,96 @@ $puntos[] = [
   "muertos" => 0,
   "url" => "https://chacabucoenred.com/choque-entre-auto-y-moto-19/",
 ];
+
+$badenes[] = [
+  //108 - Zapiola y Soberania Nacional
+  "latitud" => "-34.63665438247571",
+  "longitud" => "-60.45974504882298",
+];
+$badenes[] = [
+  //109 - Sarmiento E/ Guemes y Castelli
+  "latitud" => "-34.652164343337994",
+  "longitud" => "-60.45989066034475",
+];
+$badenes[] = [
+  //110 - Nueve de Julio y Uspallata
+  "latitud" => "-34.64525098392213",
+  "longitud" => "-60.480409605109905",
+];
+$badenes[] = [
+  //111 - Nueve de Julio y Casasco
+  "latitud" => "-34.64724484110612",
+  "longitud" => "-60.48273817643081",
+];
+$badenes[] = [
+  //112 - Nueve de Julio y Calle 330
+  "latitud" => "-34.64938925951662",
+  "longitud" => "-60.48509227253651",
+];
+$badenes[] = [
+  //113 - Nueve de Julio y Bandera Argentina
+  "latitud" => "-34.65056640661758",
+  "longitud" => "-60.48660597461012",
+];
+$badenes[] = [
+  //114 - Nueve de Julio y Juana Azurduy 
+  "latitud" => "-34.65191406071053",
+  "longitud" => "-60.48804724577393",
+];
+$badenes[] = [
+  //115 - Av. Miguel Gil y P. Ullua
+  "latitud" => "-34.64601745066825",
+  "longitud" => "-60.485806516938204",
+];
+$badenes[] = [
+  //116 - Andes y Velez Sarlfield
+  "latitud" => "-34.64311962581549",
+  "longitud" => "-60.48474573228249",
+];
+$badenes[] = [
+  //117 - Andes & J. M. Gutiérrez
+  "latitud" => "-34.64384602549787",
+  "longitud" => "-60.48546941176143",
+];
+$badenes[] = [
+  //118 - P. Ullua 400
+  "latitud" => "-34.64528123772855",
+  "longitud" => "-60.48701368590089",
+];
+$badenes[] = [
+  //119 - Juan Jose Paso E/ P. Ullua y Dorrego
+  "latitud" => "-34.63915252836092",
+  "longitud" => "-60.486605072397445",
+];
+$badenes[] = [
+  //120 - Mendoza & General Artigas
+  "latitud" => "-34.634454575752834",
+  "longitud" => "-60.485808974611",
+];
+$badenes[] = [
+  //121 - Gral. Artigas & Dr. Terrile
+  "latitud" => "-34.63586477590427",
+  "longitud" => "-60.48735468348806",
+];
+$badenes[] = [
+  //122 - Roca E/ Juan XXIII y Dr. Terrile
+  "latitud" => "-34.63477584059673",
+  "longitud" => "-60.49048700465024",
+];
+$badenes[] = [
+  //123 - Roca E/ Dr. Terrile y La Rioja 
+  "latitud" => "-34.63339012622228",
+  "longitud" => "-60.488920739028934",
+];
+$badenes[] = [
+  //124 - Av. Saavedra al 800
+  "latitud" => "-34.628883536878284",
+  "longitud" => "-60.48805498995521",
+];
+$badenes[] = [
+  //125 - Av. Saavedra al 650
+  "latitud" => "-34.6325743824284",
+  "longitud" => "-60.48336953621379",
+];
+
+?>
