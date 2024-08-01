@@ -109,7 +109,7 @@ $puntos[] = [
     "url" => "https://chacabucoenred.com/una-ciclista-trasladada-al-hospital-3/",
   ];
 
-  $badenes[] = [
+$badenes[] = [
     "latitud" => "-34.638705348103045",
     "longitud" => "-60.481968275363194",
 ];
