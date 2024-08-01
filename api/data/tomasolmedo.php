@@ -1,13 +1,13 @@
 <?php
 
 $puntos[] = [
-    "latitud" => "-34.64226950916291", 
+    "latitud" => "-34.64226950916291",
     "longitud" => "-60.4840521605303",
-    "fecha" => "2023-04-16", 
-    "horario" => "TARDE", 
-    "tipo" => "GRANDE_CHICO", 
-    "danios_materiales" => "DAÑOS_MENORES", 
-    "danios_fisicos" => "LEVE", 
+    "fecha" => "2023-04-16",
+    "horario" => "TARDE",
+    "tipo" => "GRANDE_CHICO",
+    "danios_materiales" => "DAÑOS_MENORES",
+    "danios_fisicos" => "LEVE",
     "muertos" => 0,
     "url" => "https://chacabucoenred.com/un-joven-y-un-menor-hospitalizados-tras-un-accidente/",
 ];
@@ -155,5 +155,3 @@ $puntos[] = [
     "muertos" => 0,
     "url" => "https://chacabucoenred.com/le-chocaron-el-auto-y-busca-al-responsable-2a/",
 ];
-
-?>

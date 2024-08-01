@@ -1,7 +1,7 @@
 <?php 
 
 $puntos[] = [
-  "latitud" => "-34.64240492819295,", // CON MUCHOS DECIMALES
+  "latitud" => "-34.64240492819295", // CON MUCHOS DECIMALES
   "longitud" => "-60.457450961227764",
   "fecha" => "2022-12-15", // YYYY-MM-DD
   "horario" => "TARDE", // MAYUSCULA

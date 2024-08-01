@@ -1,5 +1,5 @@
 <?php
-$puntos = [
+$puntos[] = [
     [
         "latitud" => "-34.635075789091864",
         "longitud" => "-60.4668041056289",
@@ -133,4 +133,3 @@ $puntos = [
         "url" => "https://chacabucoenred.com/una-mujer-trasladada-al-hospital-tras-sufrir-un-accidente/",
     ],
 ];
-?>

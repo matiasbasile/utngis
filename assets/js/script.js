@@ -25,6 +25,12 @@ function initMap() {
   }
   L.control.layers(baseMaps).addTo(window.mapa);
 
+  window.markers = L.markerClusterGroup({
+    maxClusterRadius: 80, // Establecer la distancia máxima en píxeles para agrupar los marcadores
+  });
+
+  window.mapa.addLayer(window.markers);
+
   initMenu();
 }
 
@@ -108,12 +114,20 @@ function loadPoint(layer) {
 }
 
 function renderPoint(punto) {
-  var marker = L.marker([punto.latitud, punto.longitud]).addTo(window.mapa);
+  var icono = L.icon({
+    iconUrl: 'assets/images/map-icon.svg',
+    iconSize: [32, 45], // size of the icon
+    iconAnchor: [16, 16], // point of the icon which will correspond to marker's location
+  });
+  var marker = L.marker([punto.latitud, punto.longitud], {
+    icon: icono
+  });
   var tooltip = `
   <b>Fecha: </b> ${punto.fecha}<br/>
   <b>Tipo: </b>${punto.tipo}<br/>
   <a target="_blank" href="${punto.url}">Ver link</a>`;
   marker.bindPopup(tooltip);
+  markers.addLayer(marker);
 }
 
 // Ej: workspace.loadShape({"path":"uploads/1/2023-04-08/calculation_1/vectorized"})
