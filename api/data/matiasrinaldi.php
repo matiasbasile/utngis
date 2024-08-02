@@ -239,3 +239,40 @@ $puntos[] = [
   "muertos" => 0,
   "url" => "https://chacabucoenred.com/un-joven-herido-en-accidente-de-transito-2-1/",
 ];
+
+    $badenes[] = [
+        "latitud" => "-34.627889616646975",
+        "longitud" => "-60.482683613700665",
+    ];
+
+    $badenes[] = [
+        "latitud" => "-34.63065683660484",
+        "longitud" => "-60.478890075986726",
+    ];
+
+    $badenes[] = [
+        "latitud" => "-34.63056855621833",
+        "longitud" => "-60.47894372016418",
+    ];
+
+    $badenes[] = [
+        "latitud" => "-34.64907627001593",
+        "longitud" => "-60.45871497136479",
+    ];
+
+    $badenes[] = [
+        "latitud" => "-34.63157980088048",
+        "longitud" => "-60.45827627598676",
+    ];
+
+    $badenes[] = [
+        "latitud" => "-34.647308305367666",
+        "longitud" => "-60.46096880482125",
+    ];
+
+    $badenes[] = [
+        "latitud" => "-34.64164707749037",
+        "longitud" => "-60.45665820482152",
+    ];
+
+?>
