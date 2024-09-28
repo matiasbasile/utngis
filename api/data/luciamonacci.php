@@ -211,5 +211,3 @@ $puntos[] = [
     "muertos" => 0,
     "url" => "https://chacabucoenred.com/accidente-entre-un-auto-y-una-moto-8/",
   ];
-
-?>

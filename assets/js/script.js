@@ -2,34 +2,17 @@ function initMap() {
   var center = [-34.642337,-60.471581];
   window.mapa = L.map($("#map")[0]).setView(center, 15);
 
-
-  var satelliteLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token='+MAPBOX_KEY, {
+  var streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     tileSize: 512,
     maxZoom: 18,
     zoomOffset: -1,
-    id: 'mapbox/satellite-streets-v11',
-    accessToken: MAPBOX_KEY,
   }).addTo(window.mapa);
 
-  var streetLayer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token='+MAPBOX_KEY, {
-    tileSize: 512,
-    maxZoom: 18,
-    zoomOffset: -1,
-    id: 'mapbox/streets-v11',
-    accessToken: MAPBOX_KEY,
-  });
-
   var baseMaps = {
-    "Satélite": satelliteLayer,
     "Calles": streetLayer,
   }
   L.control.layers(baseMaps).addTo(window.mapa);
-
-  window.markers = L.markerClusterGroup({
-    maxClusterRadius: 80, // Establecer la distancia máxima en píxeles para agrupar los marcadores
-  });
-
-  window.mapa.addLayer(window.markers);
 
   initMenu();
 }
@@ -92,6 +75,16 @@ function viewLayer(layerId) {
     // CARGAMOS LA CAPA
     $("#menuItem_"+layerId).addClass("active")
     var layer = getLayer(layerId);
+    
+    // Controlamos que ya no este visible
+    for(let i = 0; i < window.visibleLayers.length; i++) {
+      let ll = window.visibleLayers[i];
+      if (ll == layerId) {
+        return;
+      }
+    }
+    window.visibleLayers.push(layerId);
+
     if (layer.type == "shape") {
       loadShape(layer);
     } else if (layer.type == "point") {
@@ -105,29 +98,61 @@ function loadPoint(layer) {
     "url":layer.url,
     "dataType":"json",
     "success":function(resultado) {
+      var capa = L.layerGroup();
+      if (layer.id == "accidentes") {
+        // Si son accidentes, se tienen que agrupar
+        capa = L.markerClusterGroup({
+          maxClusterRadius: 80, // Establecer la distancia máxima en píxeles para agrupar los marcadores
+        });
+      }
+      window.mapa.addLayer(capa);
       for (let i = 0; i < resultado.length; i++) {
         let punto = resultado[i];
-        renderPoint(punto);
+        renderPoint(punto, capa);
       }
     }
   })
 }
 
-function renderPoint(punto) {
+function addLayer(layer) {
+  
+}
+
+function renderPoint(punto, layer) {
+
   var icono = L.icon({
     iconUrl: 'assets/images/map-icon.svg',
-    iconSize: [32, 45], // size of the icon
-    iconAnchor: [16, 16], // point of the icon which will correspond to marker's location
+    iconSize: [32, 45],
+    iconAnchor: [16, 16],
   });
+
+  if (punto.tipo_marcador == "semaforo") {
+    var icono = L.icon({
+      iconUrl: 'assets/images/semaforo.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+    });
+  } else if (punto.tipo_marcador == "baden") {
+    var icono = L.icon({
+      iconUrl: 'assets/images/burro.png',
+      iconSize: [32, 32],
+      iconAnchor: [16, 16],
+    });
+  }
+  
   var marker = L.marker([punto.latitud, punto.longitud], {
     icon: icono
   });
-  var tooltip = `
-  <b>Fecha: </b> ${punto.fecha}<br/>
-  <b>Tipo: </b>${punto.tipo}<br/>
-  <a target="_blank" href="${punto.url}">Ver link</a>`;
-  marker.bindPopup(tooltip);
-  markers.addLayer(marker);
+
+  if (punto.tipo_marcador == "accidente") {
+    var tooltip = `
+    <b>Fecha: </b> ${punto.fecha}<br/>
+    <b>Tipo: </b>${punto.tipo}<br/>
+    <a target="_blank" href="${punto.url}">Ver link</a>`;
+    marker.bindPopup(tooltip);
+  }
+
+  layer.addLayer(marker);
 }
 
 // Ej: workspace.loadShape({"path":"uploads/1/2023-04-08/calculation_1/vectorized"})
@@ -172,4 +197,34 @@ function loadShape(layer) {
   // Iniciar la carga del archivo Shape
   let url = BASE + "/" + layer.url;
   worker.postMessage(url);
+}
+
+function generateGeoJSON(markers) {
+  var geojson = {
+    "type": "FeatureCollection",
+    "features": markers.map(function(marker) {
+      return {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [marker.getLatLng().lng, marker.getLatLng().lat]
+        },
+        "properties": {
+          "popupContent": marker.getPopup().getContent()
+        }
+      };
+    })
+  };
+  return geojson;
+}
+
+function downloadGeoJSON() {
+  var geojsonData = generateGeoJSON();
+  var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(geojsonData));
+  var downloadAnchorNode = document.createElement('a');
+  downloadAnchorNode.setAttribute("href", dataStr);
+  downloadAnchorNode.setAttribute("download", "markers.geojson");
+  document.body.appendChild(downloadAnchorNode); // requerido para Firefox
+  downloadAnchorNode.click();
+  downloadAnchorNode.remove();
 }

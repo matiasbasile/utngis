@@ -191,5 +191,3 @@ $puntos[] = [
   "muertos" => 0,
   "url" => "https://chacabucoenred.com/le-chocaron-la-camioneta-y-se-dieron-a-la-fuga-2/",
 ];
-
-?>

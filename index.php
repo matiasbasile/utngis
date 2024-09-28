@@ -37,7 +37,6 @@
 <script type="text/javascript" src="assets/js/script.js"></script>
 <script>
 const BASE = "<?php echo (isset($_SERVER["BASE"]) ? $_SERVER["BASE"] : "")  ?>";
-const MAPBOX_KEY = "<?php echo (isset($_SERVER["MAPBOX_KEY"]) ? $_SERVER["MAPBOX_KEY"] : "")  ?>";
 
 // Modelo de capas
 window.visibleLayers = [];
@@ -57,183 +56,18 @@ window.groups = [
     "label":"Servicios",
     "layers":[
       {
-        "type":"shape",
-        "url":"data/calles/calles",
-        "id":"calles",
-        "label":"Asfalto",
-        "color": "#ff0000",
-        "weight": 3,
-        "opacity": 1,
+        "type":"point",
+        "url":"api/semaforos.php",
+        "id":"semaforos",
+        "label":"Semaforos",
       },
       {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Red agua corriente",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-cloacas",
-        "label":"Cloacas",
-        "opacity":0.5,
-      },
-      {
-        "type":"shape",
-        "url":"data/pozos_agua/pozos_agua",
-        "id":"pozos-de-agua",
-        "label":"Pozos de agua",
-        "color": "#ff0000",
-        "weight": 3,
-        "opacity": 1,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
-        "label":"Semáforos",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
-        "label":"Cámaras de Vigilancia",
-        "opacity":0.5,
-      },
-      {
-        "type":"shape",
-        "url":"data/estacionamiento_zonas/estacionamiento_zonas",
-        "id":"estacionamiento-zonas",
-        "label":"Zonas de Estacionamiento",
-        "opacity":0.8,
-        "color": "#ff0000",
-        "weight": 3,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
-        "label":"Puntos de Estacionamiento",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
-        "label":"Bicisendas",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
-        "label":"Cobertura de Gas Natural",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
-        "label":"Conductos Pluviales",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"pozos-de-agua",
-        "label":"Cordón Cuneta",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Reductores de velocidad",
-        "opacity":0.5,
-      }, 
+        "type":"point",
+        "url":"api/badenes.php",
+        "id":"badenes",
+        "label":"Badenes",
+      }
     ]
-  },
-  {
-    "label":"Geografía y Ambiente",
-    "layers":[
-      {
-        "type":"shape",
-        "url":"data/barrios/barrios",
-        "id":"barrios",
-        "label":"Barrios",
-        "opacity":0.5,
-      },
-      {
-        "type":"shape",
-        "url":"data/sectores",
-        "id":"sectores",
-        "label":"Sectores",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Catastro Chacra",
-        "opacity":0.5,
-      },  
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Catastro Manzana",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Catastro Quinta",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Edificios en altura",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Espacios Verdes",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Luminarias LED",
-        "opacity":0.5,
-      },
-    ], 
-  },
-    {
-    "label":"Puntos de Interés",
-    "layers":[
-      {
-        "type":"shape",
-        "url":"data/barrios/",
-        "id":"barrios",
-        "label":"Barrios",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Escuelas Secundarias",
-        "opacity":0.5,
-      },   
-    ], 
   },
   {
     "label":"Instituciones",

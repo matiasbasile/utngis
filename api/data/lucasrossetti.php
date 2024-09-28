@@ -262,4 +262,3 @@ $puntos[] = [ // 22
     "muertos" => "0",
     "url" => "https://chacabucoenred.com/se-descompenso-y-choco-contra-dos-autos/",
 ];
-?>

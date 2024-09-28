@@ -1,81 +1,80 @@
 <?php
-$badenes[54] = [
+$badenes[] = [
     "latitud" => "-34.62692371998406",
     "longitud" => "-60.46403561159995",
 ];
-$badenes[55] = [
+$badenes[] = [
     "latitud" => "-34.62696105356056",
     "longitud" => "-60.46411880848059",
 ];
-$badenes[56] = [
+$badenes[] = [
     "latitud" => "-34.62900207433997",
     "longitud" => "-60.466190789680944",
 ];
 
-$badenes[57] = [
+$badenes[] = [
     "latitud" => "-34.63446697210535",
     "longitud" => "-60.47064374814784",
 ];
 
-$badenes[58] = [
+$badenes[] = [
     "latitud" => "-34.63075531092279",
     "longitud" => "-60.464045898213264",
 ];
 
-$badenes[59] = [
+$badenes[] = [
     "latitud" => "-34.6513478016268",
     "longitud" => "-60.4723075174619",
 ];
 
-$badenes[60] = [
+$badenes[] = [
     "latitud" => "-34.64961050079421",
     "longitud" => "-60.47472484814726",
 ];
 
-$badenes[61] = [
+$badenes[] = [
     "latitud" => "-34.647789244151525",
     "longitud" => "-60.47698970396904",
 ];
 
-$badenes[62] = [
+$badenes[] = [
     "latitud" => "-34.64478890998005",
     "longitud" => "-60.4692116328049",
 ];
 
-$badenes[63] = [
+$badenes[] = [
     "latitud" => "-34.646376819562434",
     "longitud" => "-60.468816375133436",
 ];
-$badenes[64] = [
+$badenes[] = [
     "latitud" => "-34.64549181758421",
     "longitud" => "-60.46996010396918",
 ];
-$badenes[65] = [
+$badenes[] = [
     "latitud" => "-34.65244390743001",
     "longitud" => "-60.46261577698266",
 ];
-$badenes[66] = [
+$badenes[] = [
     "latitud" => "-34.652761777216654",
     "longitud" => "-60.461815348038925",
 ];
-$badenes[67] = [
+$badenes[] = [
     "latitud" => "-34.653476654304285",
     "longitud" => "-60.46133255039646",
 ];
-$badenes[68] = [
+$badenes[] = [
     "latitud" => "-34.633128456478666",
     "longitud" => "-60.48423877513425",
 ];
-$badenes[69] = [
+$badenes[] = [
     "latitud" => "-34.63396723650655",
     "longitud" => "-60.48308774629854",
 ];
-$badenes[70] = [
+$badenes[] = [
     "latitud" => "-34.63492915935243",
     "longitud" => "-60.481973232805366",
 ];
-$badenes[71] = [
+$badenes[] = [
     "latitud" => "-34.63943140335588",
     "longitud" => "-60.482756725527146",
 ];
-?>

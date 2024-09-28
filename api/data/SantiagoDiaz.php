@@ -144,18 +144,3 @@ $puntos[] = [
     "muertos" => 0,
     "url" => "https://chacabucoenred.com/otro-grave-accidente-en-el-acceso/",
 ];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

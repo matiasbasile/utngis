@@ -181,5 +181,3 @@ $puntos[] = [
     "muertos" => 0,
     "url" => "https://chacabucoenred.com/un-joven-herido-tras-un-accidente-de-transito/",
  ];
-
-?>

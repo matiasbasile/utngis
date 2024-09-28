@@ -121,7 +121,7 @@ $puntos[] = [
 ];
 
 $puntos[] = [
-    "latitud" => "34.640529491877",
+    "latitud" => "-34.640529491877",
     "longitud" => "-60.459816732229335",
     "fecha" => "2024-05-26",
     "horario" => "MADRUGADA",

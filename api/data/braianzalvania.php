@@ -179,7 +179,3 @@ $puntos[] = [
   "muertos" => 0,
   "url" => "https://chacabucoenred.com/auto-choco-a-una-bicicleta/",
 ];
-
-
-
- ?>

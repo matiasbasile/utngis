@@ -3,10 +3,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 header('Content-Type: application/json; charset=utf-8');
-$puntos = [];
+$badenes = [];
 
 function include_all_php_files($directory) {
-    global $puntos;
+    global $badenes;
 
     if (!is_dir($directory)) {
         throw new Exception("El directorio no existe: $directory");
@@ -30,14 +30,14 @@ try {
     echo "Error: " . $e->getMessage();
 }
 
-$puntosOk = [];
-foreach($puntos as $punto) {
+$badenesOk = [];
+foreach($badenes as $punto) {
     if (!isset($punto["latitud"]) || !isset($punto["longitud"])) continue;
     $punto["latitud"] = floatval($punto["latitud"]);
     $punto["longitud"] = floatval($punto["longitud"]);
-    $punto["tipo_marcador"] = "accidente";
-    $puntosOk[] = $punto;
+    $punto["tipo_marcador"] = "baden";
+    $badenesOk[] = $punto;
 }
 
-echo json_encode($puntosOk);
+echo json_encode($badenesOk);
 ?>
