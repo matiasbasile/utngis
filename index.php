@@ -69,46 +69,6 @@ window.groups = [
       }
     ]
   },
-  {
-    "label":"Instituciones",
-    "layers":[
-      {
-        "type":"shape",
-        "url":"data/calles",
-        "id":"calles",
-        "label":"Agencias Gubernamentales",
-        "opacity":0.5,
-      },
-      {
-        "type":"shape",
-        "url":"data/calles",
-        "id":"calles",
-        "label":"Salas de Emergencia",
-        "opacity":0.5,
-      },
-      {
-        "type":"shape",
-        "url":"data/calles",
-        "id":"calles",
-        "label":"Escuelas Primarias",
-        "opacity":0.5,
-      },
-      {
-        "type":"",
-        "url":"",
-        "id":"red-agua",
-        "label":"Escuelas Secundarias",
-        "opacity":0.5,
-      },
-      {
-        "type":"shape",
-        "url":"data/calles",
-        "id":"calles",
-        "label":"Farmacias",
-        "opacity":0.5,
-      },  
-    ], 
-  }
 ];
 
 initMap();
