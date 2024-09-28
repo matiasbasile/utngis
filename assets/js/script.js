@@ -1,7 +1,6 @@
 function initMap() {
   var center = [-34.642337,-60.471581];
   window.mapa = L.map($("#map")[0]).setView(center, 15);
-  window.group = null; // temporal
 
   var streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -121,7 +120,6 @@ function loadPoint(layer) {
 
 function addLayer(layer) {
   window.mapa.addLayer(capa);
-  window.group = layer;
 }
 
 function renderPoint(punto, layer) {
@@ -225,8 +223,7 @@ function generateGeoJSON(markers) {
 }
 
 function downloadGeoJSON() {
-  if (window.group == null) return;
-  var geojsonData = generateGeoJSON(window.group);
+  var geojsonData = generateGeoJSON(window.groups[0]);
   var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(geojsonData));
   var downloadAnchorNode = document.createElement('a');
   downloadAnchorNode.setAttribute("href", dataStr);
