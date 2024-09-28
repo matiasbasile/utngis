@@ -24,7 +24,7 @@
         </nav>
         <div class="pl5 pr5 pt5">
           <div id="groups"></div>
-          <button id="descargar" class="btn btn-block mt20">Descargar geoJSON<button>
+          <button id="descargar" class="btn btn-block mt20">Descargar geoJSON</button>
         </div>
       </div>
     </div>
