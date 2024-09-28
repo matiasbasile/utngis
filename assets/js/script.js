@@ -109,17 +109,13 @@ function loadPoint(layer) {
           maxClusterRadius: 80, // Establecer la distancia máxima en píxeles para agrupar los marcadores
         });
       }
-      addLayer(capa);
+      window.mapa.addLayer(capa);
       for (let i = 0; i < resultado.length; i++) {
         let punto = resultado[i];
         renderPoint(punto, capa);
       }
     }
   })
-}
-
-function addLayer(layer) {
-  window.mapa.addLayer(capa);
 }
 
 function renderPoint(punto, layer) {
