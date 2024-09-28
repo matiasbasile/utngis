@@ -207,7 +207,7 @@ function loadShape(layer) {
 
 function generateGeoJSON(layer) {
   var features = new Array();
-  for(layer._layers in l) {
+  for(l in layer._layers) {
     features.push({
       "type": "Feature",
       "geometry": {
