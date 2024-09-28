@@ -205,21 +205,21 @@ function loadShape(layer) {
   worker.postMessage(url);
 }
 
-function generateGeoJSON(markers) {
+function generateGeoJSON(layer) {
+  var features = new Array();
+  for(let i = 0; i < layer._layers.length; i++) {
+    let l = layer._layers[i];
+    features.push({
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [l._latlng.lng, l._latlng.lat]
+      }
+    })
+  }
   var geojson = {
     "type": "FeatureCollection",
-    "features": markers.map(function(marker) {
-      return {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [marker.getLatLng().lng, marker.getLatLng().lat]
-        },
-        "properties": {
-          "popupContent": marker.getPopup().getContent()
-        }
-      };
-    })
+    "features": features
   };
   return geojson;
 }
