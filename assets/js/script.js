@@ -208,12 +208,12 @@ function loadShape(layer) {
 function generateGeoJSON(layer) {
   var features = new Array();
   for(l in layer._layers) {
-    console.log(l);
+    let ll = layer._layers[l];
     features.push({
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [l._latlng.lng, l._latlng.lat]
+        "coordinates": [ll._latlng.lng, ll._latlng.lat]
       }
     })
   }
