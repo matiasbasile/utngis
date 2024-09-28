@@ -1,6 +1,7 @@
 function initMap() {
   var center = [-34.642337,-60.471581];
   window.mapa = L.map($("#map")[0]).setView(center, 15);
+  window.group = null; // temporal
 
   var streetLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -109,13 +110,18 @@ function loadPoint(layer) {
           maxClusterRadius: 80, // Establecer la distancia máxima en píxeles para agrupar los marcadores
         });
       }
-      window.mapa.addLayer(capa);
+      addLayer(capa);
       for (let i = 0; i < resultado.length; i++) {
         let punto = resultado[i];
         renderPoint(punto, capa);
       }
     }
   })
+}
+
+function addLayer(layer) {
+  window.mapa.addLayer(layer);
+  window.group = layer;
 }
 
 function renderPoint(punto, layer) {
@@ -219,7 +225,8 @@ function generateGeoJSON(markers) {
 }
 
 function downloadGeoJSON() {
-  var geojsonData = generateGeoJSON(window.groups[0]);
+  if (window.group == null) return;
+  var geojsonData = generateGeoJSON(window.group);
   var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(geojsonData));
   var downloadAnchorNode = document.createElement('a');
   downloadAnchorNode.setAttribute("href", dataStr);

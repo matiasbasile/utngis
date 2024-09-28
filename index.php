@@ -35,7 +35,7 @@
     </div>
   </div>
 
-<script type="text/javascript" src="assets/js/script.js?v=2"></script>
+<script type="text/javascript" src="assets/js/script.js?v=3"></script>
 <script>
 const BASE = "<?php echo (isset($_SERVER["BASE"]) ? $_SERVER["BASE"] : "")  ?>";
 
